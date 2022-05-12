@@ -45,8 +45,10 @@ struct Container: ViewModifier {
                 }
             )
             .onPreferenceChange(FramePreferenceKey.self){ value in
-                data.containerFrame = value
-                geometryUpdated()
+                DispatchQueue.main.async {
+                    data.containerFrame = value
+                    geometryUpdated()
+                }
             }
             .coordinateSpace(name: data.space)
     }
