@@ -1,6 +1,6 @@
 # ContainerGeometry
 
-This may be helpful for you if there is a need to get geometry information for multiple SwiftUI views, e.g. if you want to track views in a grid or in other containers.
+This package may be helpful for you if you need to get geometry information for multiple SwiftUI views, e.g. if you want to track views in a grid or in other containers.
 
 ## Usage
 
@@ -15,7 +15,7 @@ This will make `ContainerGeometry` Environment Object available in the view subh
 ```
 @EnvironmentObject var geometryData: ContainerGeometry
 ```
-But for the geometry to be readable you set it on the view itself:
+But for the geometry to be readable you set it on each subview:
 ```
 SomeViewInsideYourContainer()
     .subviewGeometry(id: someHashableID)
@@ -28,7 +28,7 @@ Or get the geometry of the container:
 ```
 let containerFrameRect = geometryData.containerFrame
 ```
-Also, you may get all the IDs of the views that contain specific point like this:
+Also, you may get all the IDs of the views that contain a specific point like this:
 ```
 let idsOfTheViewsContainingYourCGPoint = geometryData.frames(containing: yourCGPoint)
 ```
@@ -39,5 +39,3 @@ geometryData.onGeometryUpdate = { geometryData in
 }
 ```
 Feel free to contact me with any questions or suggestions!
-
-
